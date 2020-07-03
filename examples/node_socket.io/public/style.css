@@ -1,0 +1,123 @@
+body {
+  font-family: "Nunito";
+}
+
+@media only screen and (max-width: 475px) {
+  #chat-web {
+    width: 100vw;
+    height: 100vh;
+  }
+  #chat-pannel {
+    height: calc(100vh - 203px);
+  }
+}
+
+@media screen and (min-width: 476px) {
+  body {
+    background: #bdc3c7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #2c3e50,
+      #bdc3c7
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #2c3e50,
+      #bdc3c7
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  #chat-web {
+    max-width: 600px;
+    height: 600px;
+  }
+  #chat-pannel {
+    height: 400px;
+  }
+}
+
+#title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 35px 20px;
+  color: #575ed8;
+  background-color: #fffff5;
+}
+
+#chat-web {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+
+#chat-web.on-blur {
+  box-shadow: 3px 3px 0 #575ed8;
+}
+
+#chat-pannel {
+  overflow: auto;
+  background: #f9f9f9;
+}
+
+#output p {
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedback p {
+  color: #aaa;
+  padding: 14px 0px;
+  margin: 0 20px;
+}
+
+#output strong {
+  color: #575ed8;
+}
+
+label {
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px;
+}
+
+input {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 0;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  font-family: Nunito;
+  font-size: 16px;
+  background-color: #fffff5;
+}
+
+button {
+  background: #575ed8;
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+}
+
+.chat-message {
+  position: relative;
+  height: 1.5em;
+}
+
+.chat-message .time {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #bdc3c7;
+}

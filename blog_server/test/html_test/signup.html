@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>注册</title>
+  <style>
+    label > span {
+      display: inline-flex;
+      justify-content: flex-start;
+      width: 4em;
+    }
+    #btnLogin {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>欢迎注册</h1>
+  <div>
+    <form>
+      <fieldset>
+        <legend>用户注册</legend>
+        <label>
+          <span>用户名</span> <input type="text" id="textUsername" />
+        </label>
+        <br />
+        <label>
+          <span>真实姓名</span> <input type="text" id="textRealname" />
+        </label>
+        <br />
+        <label>
+          <span>密码</span> <input type="password" id="textPassword" />
+        </label>
+        <br />
+        <button id="btnLogin">提交</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script>
+    // 发送 post 请求
+    function post(url, data = {}) {
+      return $.ajax({
+        type: 'post',
+        url,
+        data: JSON.stringify(data),
+        contentType: "application/json",
+      })
+    }
+
+    $('#btnLogin').click((e) => {
+      // 防止自动刷新网页
+      e.preventDefault()
+      const username = $('#textUsername').val()
+      const realname = $('#textRealname').val()
+      const password = $('#textPassword').val()    
+      const url = '/api/user/signup'
+      const data = {
+        username,
+        realname,
+        password
+      }
+      
+      post(url, data).then(res => {
+        if (res.errno === 0) {
+          // 注册成功
+          alert(res.message)
+          location.href = './admin.html'
+        } else {
+          // 注册失败
+          alert(res.message)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

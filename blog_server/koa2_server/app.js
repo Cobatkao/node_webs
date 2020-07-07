@@ -7,8 +7,11 @@ const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
 const session = require("koa-generic-session");
 const redisStore = require("koa-redis");
+const path = require("path");
+const fs = require("fs");
+const morgan = require("koa-logger");
 
-const index = require("./routes/index");
+const blog = require("./routes/blog");
 const users = require("./routes/users");
 
 const { REDIS_CONF } = require("./config/dbConf");
@@ -54,7 +57,7 @@ app.keys = ["sknckwl_37633"];
 app.use(session(CONFIG));
 
 // routes
-app.use(index.routes(), index.allowedMethods());
+app.use(blog.routes(), blog.allowedMethods());
 app.use(users.routes(), users.allowedMethods());
 
 // error-handling

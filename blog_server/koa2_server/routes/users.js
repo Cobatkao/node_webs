@@ -1,5 +1,8 @@
 const router = require("koa-router")();
 
+const { checkLogin, addNewUser } = require("../controller/userController");
+const { SuccessModel, ErrorModel } = require("../model/resModel");
+
 router.prefix("/users");
 
 router.get("/", function (ctx, next) {

@@ -6,7 +6,7 @@
     "global": "^4.4.0",
     "nexmo": "^2.7.0",
     "nodemon": "^2.0.4",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "name": "12.node_sms_server",
   "description": "- vonage短信平台提供api；",
